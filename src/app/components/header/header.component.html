@@ -1,0 +1,10 @@
+
+<mat-toolbar>
+  <span *ngFor="let menuItem of routesForMenu">
+    <a [routerLink]="menuItem.path" class="menuItem">{{menuItem.MenuTitle}}</a>
+    <!-- <nav>
+      <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    </nav> -->
+  </span>
+</mat-toolbar>

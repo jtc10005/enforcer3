@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Route } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
+import { AppRoute, AppRoutes } from './models';
 
-const homeRoute: Route = {
-  path: '/',
-  component: HomeComponent
+const homeRoute: AppRoute = {
+  path: '',
+  component: HomeComponent,
+  ShowInMenu: true,
+  MenuTitle: 'Home'
 };
 
-const listRoute: Route = {
-  path: '/list',
-  component: ListComponent
+const listRoute: AppRoute = {
+  path: 'list',
+  component: ListComponent,
+  ShowInMenu: true,
+  MenuTitle: 'List'
 };
 
-const routes: Routes = [homeRoute, listRoute];
+export const routes: AppRoutes = [homeRoute, listRoute];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
