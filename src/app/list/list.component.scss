@@ -1,0 +1,36 @@
+// .postItem {
+//   margin-top: 1.5em;
+//   width: 20em;
+// }
+
+// .center{
+//     width: 75%;
+//     margin: 10px auto;
+//   }
+  
+//   .main-div{
+//     height: 100vh;
+//     display: flex;
+//     // justify-content: center;
+//     // align-items: center;
+//   }
+.container {
+    min-height: 400px;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+//   .container:after {
+//     display: block;
+//     content: " invisible node ";
+//     flex: 999 999 auto;
+//   }
+  .item {
+    flex: 0 0 auto;
+    margin: 5px;
+    width: 20em;
+  }

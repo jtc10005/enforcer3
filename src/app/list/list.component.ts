@@ -11,7 +11,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ListComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>();
-  private post: Posts = [];
+  private posts: Posts = [];
 
   constructor(private ls: ListService) {}
 
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe(act => {
       switch (act.Type) {
         case 'POST_RCVD':
-          this.post = act.Data;
+          this.posts = act.Data;
           break;
       }
     });

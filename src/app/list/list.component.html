@@ -1,4 +1,11 @@
-<p>
+<!-- <p>
   list works!
-  {{ post | json }}
-</p>
+  {{ posts | json }}
+</p> -->
+<div class="container">
+  <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
+    <mat-card class="item">
+      {{ post | json }}
+    </mat-card>
+  </ng-template>
+</div>
