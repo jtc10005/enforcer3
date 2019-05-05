@@ -8,13 +8,17 @@ import { ListComponent } from './list/list.component';
 import { HomeComponent } from './home/home.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { HeaderComponent } from './components';
+import { ListDetailComponent } from './list/list-detail/list-detail.component';
+import { TagListComponent } from './list/list-detail/tag-list/tag-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListDetailComponent,
+    TagListComponent
   ],
   imports: [
     BrowserModule,

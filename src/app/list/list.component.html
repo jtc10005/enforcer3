@@ -2,10 +2,10 @@
   list works!
   {{ posts | json }}
 </p> -->
-<div class="container">
+<div class="wrapper container">
   <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
     <mat-card class="item">
-      {{ post | json }}
+      <app-list-detail [post]="post"></app-list-detail>
     </mat-card>
   </ng-template>
 </div>
