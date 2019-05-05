@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
 ## TODO
+ -- parent post/article
  -- hook up to db
  -- search
  -- footer, report issue github,

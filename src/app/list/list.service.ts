@@ -22,7 +22,7 @@ export class ListService {
       data.forEach(x => {
         x.trueCount = x.trueCount ? x.trueCount : 0;
       });
-      this.postData = data;
+      this.postData = data.filter(x => !x.parentPostId);
       // const sa: ServiceAction = { Type: 'POST_RCVD', Data: data };
       // this.action.next(sa);
     });
