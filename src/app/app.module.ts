@@ -10,6 +10,8 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { HeaderComponent } from './components';
 import { ListDetailComponent } from './list/list-detail/list-detail.component';
 import { TagListComponent } from './list/list-detail/tag-list/tag-list.component';
+import { AddPostComponent } from './list/add-post/add-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { TagListComponent } from './list/list-detail/tag-list/tag-list.component
     HomeComponent,
     HeaderComponent,
     ListDetailComponent,
-    TagListComponent
+    TagListComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
