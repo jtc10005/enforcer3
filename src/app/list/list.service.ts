@@ -19,6 +19,9 @@ export class ListService {
 
   fetchPosts() {
     of(MockData).subscribe(data => {
+      data.forEach(x => {
+        x.trueCount = x.trueCount ? x.trueCount : 0;
+      });
       this.postData = data;
       // const sa: ServiceAction = { Type: 'POST_RCVD', Data: data };
       // this.action.next(sa);

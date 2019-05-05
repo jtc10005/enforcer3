@@ -1,13 +1,7 @@
-<!-- <p>
-  list works!
-  {{ posts | json }}
-</p> -->
 <div class="wrapper container">
-
+  <mat-card class="item">
     <app-add-post></app-add-post>
-
-
-  <!-- <a *ngIf="!addNew" (click)="addNew = true" class="newPostLink">Post Message</a> -->
+  </mat-card>
   <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
     <mat-card class="item">
       <app-list-detail [post]="post"></app-list-detail>

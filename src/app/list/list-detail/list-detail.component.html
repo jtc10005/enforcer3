@@ -1,18 +1,24 @@
-
-  <div>
-    <app-tag-list [tags]="post.tags"></app-tag-list>
+<div>
+  <app-tag-list [tags]="post.tags"></app-tag-list>
+</div>
+<hr />
+<div class="post-container">
+  <div class="voteArea">
+    <app-vote-post [post]="post"></app-vote-post>
   </div>
-  <hr />
-  <div>
+  <div class="postArea">
     {{ post.text }}
   </div>
-  <hr />
-  <div class="timestamp">
-    <span>
-      {{ post.timestamp | date }}
-    </span>
-    <span>
-      {{ post.timestamp | date: 'h:mm a z' }}
-    </span>
-  </div>
-
+</div>
+<hr />
+<!-- <div>
+  <app-vote-post [post]="post"></app-vote-post>
+</div> -->
+<div class="timestamp">
+  <span>
+    {{ post.timestamp | date }}
+  </span>
+  <span>
+    {{ post.timestamp | date: 'h:mm a z' }}
+  </span>
+</div>

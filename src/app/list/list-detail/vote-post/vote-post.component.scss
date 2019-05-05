@@ -1,0 +1,18 @@
+.voteContainer {
+  width: 15%;
+}
+a:hover {
+  color: lightseagreen;
+}
+.countSubtext {
+  font-size: 10px;
+  span {
+    margin-left: 16px;
+  }
+}
+
+.countSubtext::after,
+.countSubtext::before {
+  content: '\A';
+  white-space: pre;
+}

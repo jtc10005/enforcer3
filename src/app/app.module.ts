@@ -12,6 +12,7 @@ import { ListDetailComponent } from './list/list-detail/list-detail.component';
 import { TagListComponent } from './list/list-detail/tag-list/tag-list.component';
 import { AddPostComponent } from './list/add-post/add-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VotePostComponent } from './list/list-detail/vote-post/vote-post.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ListDetailComponent,
     TagListComponent,
-    AddPostComponent
+    AddPostComponent,
+    VotePostComponent
   ],
   imports: [
     BrowserModule,

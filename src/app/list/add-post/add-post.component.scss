@@ -1,3 +1,22 @@
-.full-width{
-    width: inherit;
+.full-width {
+  width: 100%;
+}
+.centerButton {
+  margin-left: 30%;
+}
+
+.addNewContainer {
+  color: black;
+}
+button[type='submit']:disabled {
+  color: black;
+  background-color: darkgrey;
+}
+
+.pull-right {
+  float: right;
+}
+
+label.mat-form-field-label {
+  color: black;
 }

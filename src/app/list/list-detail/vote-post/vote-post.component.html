@@ -1,0 +1,21 @@
+<span class="voteContainer">
+  <span>
+    <button mat-icon-button (click)="vote(1)" [disabled]="alreadyVotedUp">
+      <mat-icon aria-label="Upvote Post">arrow_upward</mat-icon>
+    </button>
+  </span>
+  <span class="countSubtext">
+    <span>
+      {{ post.trueCount }}
+    </span>
+  </span>
+  <span>
+    <button
+      mat-icon-button
+      (click)="vote(-1)"
+      [disabled]="alreadyVotedDown || post.trueCount === 0"
+    >
+      <mat-icon aria-label="Downvote Post">arrow_downward</mat-icon>
+    </button></span
+  >
+</span>

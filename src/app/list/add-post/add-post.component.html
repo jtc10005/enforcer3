@@ -1,6 +1,6 @@
-<div *ngIf="addNew">
-  <div [formGroup]="postForm" >
-    <mat-form-field class="full-width">
+<div *ngIf="addNew" class="addNewContainer">
+  <div [formGroup]="postForm" class="addNewContainer">
+    <mat-form-field class="full-width addNewContainer">
       <textarea
         matInput
         placeholder="Post Message..."
@@ -8,17 +8,27 @@
       ></textarea>
     </mat-form-field>
     <div>
-      <button type="submit" mat-raised-button color="primary" (click)="submitPost()">Submit</button>
-      <button type="button" mat-raised-button (click)="reset()">Cancel</button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="submitPost()"
+        [disabled]="!postForm.valid"
+      >
+        Post
+      </button>
+      <button type="button" mat-raised-button class="pull-right" (click)="reset()">Cancel</button>
     </div>
   </div>
 </div>
-<button
-  mat-raised-button
-  color="accent"
-  *ngIf="!addNew"
-  (click)="addNew = true"
-  class="newPostLink"
->
-  Post Message
-</button>
+<span class="centerButton">
+  <button
+    mat-raised-button
+    color="accent"
+    *ngIf="!addNew"
+    (click)="addNew = true"
+    class="newPostLink"
+  >
+    Post New Message
+  </button>
+</span>

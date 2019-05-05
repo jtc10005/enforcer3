@@ -7,3 +7,22 @@
   }
 }
 
+.voteArea {
+  width: 20%;
+  flex: 0 0 auto;
+}
+
+.postArea {
+  width: 80%;
+  flex: 0 0 auto;
+}
+
+.post-container {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
