@@ -28,6 +28,11 @@ export class ListService {
     });
   }
 
+  fetchReplies(PostId: number) {
+    const md = MockData.filter(x => x.parentPostId === PostId);
+    return of(md);
+  }
+
   addPost(post: PostItem) {
     const posts = this.postData;
     post.tags = this.parseTags(post.text);

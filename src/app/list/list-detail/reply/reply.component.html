@@ -1,0 +1,10 @@
+
+<a class="repliyButton" (click)="showReplies()">{{!show ? 'View Replies':'Hide Replies'}}</a>
+<div *ngIf="show">
+  <span *ngIf="!replies.length">No Replies</span>
+  <span *ngIf="replies.length">
+    <span *ngFor="let p of replies">
+      <pre>{{ p | json }}</pre>
+    </span>
+  </span>
+</div>

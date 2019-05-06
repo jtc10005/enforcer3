@@ -14,6 +14,7 @@
 <!-- <div>
   <app-vote-post [post]="post"></app-vote-post>
 </div> -->
+
 <div class="timestamp">
   <span>
     {{ post.timestamp | date }}
@@ -21,4 +22,7 @@
   <span>
     {{ post.timestamp | date: 'h:mm a z' }}
   </span>
+</div>
+<div>
+  <app-reply [PostId]="post.postId"></app-reply>
 </div>
