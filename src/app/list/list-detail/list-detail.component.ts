@@ -8,7 +8,7 @@ import { PostItem } from 'src/app/models/postItem';
 })
 export class ListDetailComponent implements OnInit {
   @Input() post: PostItem;
-
+  @Input() showReplies = true;
   constructor() {}
 
   ngOnInit() {}

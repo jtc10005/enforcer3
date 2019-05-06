@@ -4,7 +4,8 @@
   </mat-card>
   <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
     <mat-card class="item">
-      <app-list-detail [post]="post"></app-list-detail>
+        <app-list-detail [post]="post" [showReplies]="false"></app-list-detail>
+      <a [routerLink]="['post', post.postId]">View Post</a>
     </mat-card>
   </ng-template>
 </div>

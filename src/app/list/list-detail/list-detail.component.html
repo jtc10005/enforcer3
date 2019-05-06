@@ -23,6 +23,6 @@
     {{ post.timestamp | date: 'h:mm a z' }}
   </span>
 </div>
-<div>
+<div *ngIf="showReplies">
   <app-reply [PostId]="post.postId"></app-reply>
 </div>

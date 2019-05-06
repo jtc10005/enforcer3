@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { AppRoute, AppRoutes } from './models';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const homeRoute: AppRoute = {
   path: '',
@@ -18,7 +19,13 @@ const listRoute: AppRoute = {
   MenuTitle: 'List'
 };
 
-export const routes: AppRoutes = [homeRoute, listRoute];
+const postDetailRoute: AppRoute = {
+  path: 'list/post/:id',
+  component: PostDetailComponent,
+  ShowInMenu: false,
+};
+
+export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
