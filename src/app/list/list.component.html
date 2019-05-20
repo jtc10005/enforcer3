@@ -1,10 +1,15 @@
 <div class="wrapper container">
-  <mat-card class="item">
-    <app-add-post></app-add-post>
-  </mat-card>
+  <!-- <span class="centerButton">
+    <button mat-raised-button color="accent" *ngIf="!addNew" (click)="addNew = true" class="newPostLink">
+      Post New Message
+    </button>
+  </span>
+  <mat-card class="item" *ngIf="addNew">
+    <app-add-post (PostSubmit)="addNewPost($event)" (CancelEvent)="addNew = false"></app-add-post>
+  </mat-card> -->
   <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
     <mat-card class="item">
-        <app-list-detail [post]="post" [showReplies]="false"></app-list-detail>
+      <app-list-detail [post]="post" [showReplies]="false"></app-list-detail>
       <a [routerLink]="['post', post.postId]">View Post</a>
     </mat-card>
   </ng-template>

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { AppRoute, AppRoutes } from './models';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { SubmitNewPostComponent } from './submit-new-post/submit-new-post.component';
 
 const homeRoute: AppRoute = {
   path: '',
@@ -25,7 +26,14 @@ const postDetailRoute: AppRoute = {
   ShowInMenu: false,
 };
 
-export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute];
+const SubmitNew: AppRoute = {
+  path: 'submitNew',
+  component: SubmitNewPostComponent,
+  ShowInMenu: true,
+  MenuTitle: 'Submit'
+};
+
+export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute, SubmitNew];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

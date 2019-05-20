@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ListService } from '../list.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PostItem } from '../../models/postItem';
@@ -9,8 +9,12 @@ import { PostItem } from '../../models/postItem';
   styleUrls: ['./add-post.component.scss']
 })
 export class AddPostComponent implements OnInit {
-  constructor(private ls: ListService, private fb: FormBuilder) {}
-  private addNew = false;
+  @Output() PostSubmit = new EventEmitter<PostItem>();
+  @Output() CancelEvent = new EventEmitter();
+  constructor(
+    private fb: FormBuilder
+  ) { }
+
   postForm: FormGroup;
 
   ngOnInit() {
@@ -22,12 +26,14 @@ export class AddPostComponent implements OnInit {
   submitPost() {
     const p: PostItem = this.postForm.value;
     p.timestamp = new Date();
-    this.ls.addPost(p);
+    this.PostSubmit.emit(p);
     this.reset();
+
+
   }
 
   reset() {
     this.postForm.reset();
-    this.addNew = false;
+    this.CancelEvent.emit();
   }
 }

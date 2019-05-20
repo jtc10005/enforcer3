@@ -1,4 +1,4 @@
-<div *ngIf="addNew" class="addNewContainer">
+<div class="addNewContainer">
   <div [formGroup]="postForm" class="addNewContainer">
     <mat-form-field class="full-width addNewContainer">
       <textarea
@@ -21,14 +21,3 @@
     </div>
   </div>
 </div>
-<span class="centerButton">
-  <button
-    mat-raised-button
-    color="accent"
-    *ngIf="!addNew"
-    (click)="addNew = true"
-    class="newPostLink"
-  >
-    Post New Message
-  </button>
-</span>

@@ -1,0 +1,19 @@
+.wrapper {
+    max-height: 90%;
+    overflow: scroll;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item {
+    flex: 0 0 auto;
+    margin: 5px;
+    width: 45em;
+    background-color: gray;
+    color:black;
+  }
+  

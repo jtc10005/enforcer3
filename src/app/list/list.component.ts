@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListService } from './list.service';
-import { Posts } from '../models/postItem';
+import { Posts, PostItem } from '../models/postItem';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
@@ -11,14 +11,14 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ListComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>();
-
+  private addNew = false;
   // private posts: Posts = [];
 
   get posts() {
     return this.ls.postData;
   }
 
-  constructor(private ls: ListService) {}
+  constructor(private ls: ListService) { }
 
   ngOnInit() {
     // this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe(act => {
@@ -34,5 +34,10 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy.next();
     this.destroy.complete();
+  }
+
+  addNewPost(np: PostItem) {
+    this.ls.addPost(np);
+    this.addNew = false;
   }
 }
