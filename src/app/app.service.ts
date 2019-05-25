@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { MockData, getMockData } from './mockData';
+import { MockData, getMockData } from './list/mockData';
 import { of, Observable, Subject } from 'rxjs';
-import { ServiceAction } from '../models/serviceAction';
+import { ServiceAction } from './models/serviceAction';
 import { from } from 'rxjs';
-import { PostItem } from '../models/postItem';
+import { PostItem } from './models/postItem';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListService {
+export class AppService {
   private action = new Subject<ServiceAction>();
   serviceAction = this.action.asObservable();
 

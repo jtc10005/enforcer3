@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ListService } from './list.service';
+import { AppService } from '../app.service';
 import { Posts, PostItem } from '../models/postItem';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
@@ -18,7 +18,7 @@ export class ListComponent implements OnInit, OnDestroy {
     return this.ls.postData;
   }
 
-  constructor(private ls: ListService) { }
+  constructor(private ls: AppService) { }
 
   ngOnInit() {
     // this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe(act => {

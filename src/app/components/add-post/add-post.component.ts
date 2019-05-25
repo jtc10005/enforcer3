@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ListService } from '../list.service';
+import { AppService } from '../../app.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PostItem } from '../../models/postItem';
 

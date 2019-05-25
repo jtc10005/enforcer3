@@ -8,16 +8,16 @@ import { SubmitNewPostComponent } from './submit-new-post/submit-new-post.compon
 
 const homeRoute: AppRoute = {
   path: '',
-  component: HomeComponent,
-  ShowInMenu: true,
-  MenuTitle: 'Home'
+  redirectTo: 'list',
+  ShowInMenu: false,
+  pathMatch: 'full'
 };
 
 const listRoute: AppRoute = {
   path: 'list',
   component: ListComponent,
   ShowInMenu: true,
-  MenuTitle: 'List'
+  MenuTitle: 'Home'
 };
 
 const postDetailRoute: AppRoute = {
@@ -39,4 +39,4 @@ export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute, SubmitN
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

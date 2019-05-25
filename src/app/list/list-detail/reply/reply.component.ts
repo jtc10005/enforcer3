@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ListService } from '../../list.service';
+import { AppService } from '../../../app.service';
 import { PostItem } from 'src/app/models/postItem';
 
 @Component({
@@ -11,7 +11,7 @@ export class ReplyComponent implements OnInit {
   @Input() PostId: number;
   show = false;
   replies: PostItem[];
-  constructor(private ls: ListService) {}
+  constructor(private ls: AppService) {}
 
   ngOnInit() {}
 
