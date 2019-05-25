@@ -36,6 +36,9 @@ export class AppService {
   addPost(post: PostItem) {
     const posts = this.postData;
     post.tags = this.parseTags(post.text);
+    post.timestamp = !post.timestamp? new Date() : post.timestamp;
+    post.trueCount = 0;
+    // IF user logged in add userid
     posts.push(post);
     this.postData = posts.sort((x, y) => {
       return y.timestamp.getTime() - x.timestamp.getTime();

@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { HeaderComponent, AddPostComponent } from './components';
 import { ListDetailComponent } from './list/list-detail/list-detail.component';
-import { TagListComponent } from './list/list-detail/tag-list/tag-list.component';
+import { TagListComponent } from './components/tag-list/tag-list.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { VotePostComponent } from './list/list-detail/vote-post/vote-post.component';
