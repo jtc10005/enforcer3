@@ -13,7 +13,7 @@
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" rows="3" formControlName="text"></textarea>
       </mat-form-field>
       <label>Tags: </label>
-      <span *ngIf="!postForm.controls.text.value || postForm.controls.text.value === ''">None</span>
+      <span *ngIf="postForm?.controls.text.value === ''">None</span>
       <app-tag-list [postText]="postForm.controls.text.value"></app-tag-list>
     </mat-card-content>
 

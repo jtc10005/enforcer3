@@ -16,6 +16,10 @@ import { VotePostComponent } from './list/list-detail/vote-post/vote-post.compon
 import { ReplyComponent } from './list/list-detail/reply/reply.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SubmitNewPostComponent } from './submit-new-post/submit-new-post.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { firebaseConfig } from './firebase.config';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -36,9 +40,11 @@ import { SubmitNewPostComponent } from './submit-new-post/submit-new-post.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,19 @@
 export class PostItem {
-  postId: number;
+  postId: string;
   text: string;
   timestamp: Date;
   tags: string[];
   trueCount?: number;
   parentPostId?: number;
 
-  constructor() {
+  constructor(options?: {
+    postId?: string,
+    text?: string,
+    timestamp?: Date,
+    tags?: string[],
+    trueCount?: number,
+    parentPostId?: number
+  }) {
     this.postId = undefined;
     this.text = undefined;
     this.timestamp = undefined;
