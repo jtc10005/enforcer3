@@ -12,7 +12,7 @@ import { ListDetailComponent } from './list/list-detail/list-detail.component';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { VotePostComponent } from './list/list-detail/vote-post/vote-post.component';
+import { VotePostComponent } from './components/vote-post/vote-post.component';
 import { ReplyComponent } from './list/list-detail/reply/reply.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SubmitNewPostComponent } from './submit-new-post/submit-new-post.component';

@@ -16,12 +16,13 @@
 </div> -->
 
 <div class="timestamp">
-  <span>
+Posted At:
+  <!-- <span>
     {{ post.timestamp | date }}
   </span>
   <span>
     {{ post.timestamp | date: 'h:mm a z' }}
-  </span>
+  </span> -->
 </div>
 <div *ngIf="showReplies">
   <app-reply [PostId]="post.postId"></app-reply>

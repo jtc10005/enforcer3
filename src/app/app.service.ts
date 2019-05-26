@@ -21,22 +21,14 @@ export class AppService {
   }
 
   fetchPosts() {
-    // of(MockData).subscribe(data => {
-    //   data.forEach(x => {
-    //     x.trueCount = x.trueCount ? x.trueCount : 0;
-    //   });
-    //   this.postData = data.filter(x => !x.parentPostId);
-    // const sa: ServiceAction = { Type: 'POST_RCVD', Data: data };
-    // this.action.next(sa);
-    // });
     this.postCollection.snapshotChanges().subscribe(data => {
-      const post: PostItem[] = data.map(e => {
-        return new PostItem({ postId: e.payload.doc.id, ...e.payload.doc.data() });
+      this.postData = data.map(e => {
+        const post = e.payload.doc.data() as PostItem;
+        post.postId = e.payload.doc.id;
+        post.timestamp = new Date(post.timestamp);
+        post.trueCount = !post.trueCount ? 0 : post.trueCount;
+        return post;
       });
-      post.forEach(x => {
-        x.trueCount = x.trueCount ? x.trueCount : 0;
-      });
-      this.postData = post.filter(x => !x.parentPostId);
     });
   }
 
@@ -52,10 +44,10 @@ export class AppService {
     post.trueCount = 0;
     // IF user logged in add userid
     this.postCollection.add(post);
-    // posts.push(post);
-    // this.postData = posts.sort((x, y) => {
-    //   return y.timestamp.getTime() - x.timestamp.getTime();
-    // });
+  }
+
+  updatePost(post: PostItem) {
+    this.postCollection.doc(post.postId).set(post);
   }
 
   parseTags(text: string): string[] {

@@ -10,12 +10,7 @@
     </span>
   </span>
   <span>
-    <button
-      mat-icon-button
-      (click)="vote(-1)"
-      [disabled]="alreadyVotedDown || post.trueCount === 0"
-    >
+    <button mat-icon-button (click)="vote(-1)" [disabled]="alreadyVotedDown">
       <mat-icon aria-label="Downvote Post">arrow_downward</mat-icon>
-    </button></span
-  >
+    </button></span>
 </span>
