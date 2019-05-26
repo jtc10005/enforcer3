@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ipConfig } from './config';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'firebase';
+import { ConvertTimeStampToJSDate } from './utilities';
 
 
 @Injectable({
@@ -26,35 +28,32 @@ export class UserService {
     }
 
     this.http.get('https://api.ipify.org?format=json').subscribe((res: IpResponse) => {
-      // console.log('res ', res);
-      // const ipInfo = res.json();
-      // this.userInfo.IP = res.ip;
       this.validateUser(res.ip);
-
-    }); // ...and calling .json() on the response to return data
-    // . catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+    });
   }
 
   validateUser(ip: string) {
-    this.userCollection.doc(ip).get().subscribe(res => {
-      if (res.exists) {
-        // this.ui = res;
-        console.log(res);
+    this.firestore.collection('user', ref => ref.where('IP', '==', ip)).get().subscribe(res => {
+      if (!res.empty) {
+        const e = res.docs[0];
+        this.ui = e.data() as UserInfo;
+        this.ui.timstamp = ConvertTimeStampToJSDate(e.data().timestamp);
+        this.ui.UserID = e.id;
+        console.log('User Info Retrieved', this.ui);
         return;
       }
       // tslint:disable-next-line: no-use-before-declare
       const u = new UserInfo({ IP: ip });
-      this.addUser(u);
+      this.addAnnonUser(u);
 
     })
   }
 
-  addUser(ui: UserInfo) {
-    //trying to add user with my id (ip address)
-    this.userCollection.add(ui).then(res => {
-
+  addAnnonUser(ui: UserInfo) {
+    this.userCollection.add({ ...ui })
+    .then(res => {
       console.log('added user res', res);
-      this.validateUser(ui.IP)
+      this.validateUser(ui.IP);
     });
   }
 }
@@ -69,11 +68,13 @@ class IpResponse {
 export class UserInfo {
   IP: string;
   fName: string;
-
+  timstamp: Date;
+  UserID: string;
   constructor(options?: {
     IP: string;
   }) {
     this.IP = options.IP;
+    this.timstamp = new Date();
   }
 
 }

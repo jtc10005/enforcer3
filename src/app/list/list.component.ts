@@ -15,25 +15,15 @@ export class ListComponent implements OnInit, OnDestroy {
   // private posts: Posts = [];
 
   get posts() {
-    return this.ls.postData;
+    return this.ls.postData.sort((x, y) => y.timestamp.getTime() - x.timestamp.getTime() );
   }
 
   constructor(private ls: AppService) { }
 
   ngOnInit() {
-    // this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe(act => {
-    //   switch (act.Type) {
-    //     case 'POST_RCVD':
-    //       this.posts = act.Data;
-    //       break;
-    //   }
-    // });
-    // this.ls.fetchPosts();
   }
 
   ngOnDestroy() {
-    this.destroy.next();
-    this.destroy.complete();
   }
 
   addNewPost(np: PostItem) {

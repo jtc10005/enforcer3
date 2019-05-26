@@ -4,7 +4,8 @@ import { of, Observable, Subject } from 'rxjs';
 import { ServiceAction } from './models/serviceAction';
 import { from } from 'rxjs';
 import { PostItem } from './models/postItem';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, } from '@angular/fire/firestore';
+import { ConvertTimeStampToJSDate } from './utilities';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class AppService {
       this.postData = data.map(e => {
         const post = e.payload.doc.data() as PostItem;
         post.postId = e.payload.doc.id;
-        post.timestamp = new Date(post.timestamp);
+        post.timestamp = ConvertTimeStampToJSDate(post.timestamp);
         post.trueCount = !post.trueCount ? 0 : post.trueCount;
         return post;
       });
@@ -38,7 +39,7 @@ export class AppService {
   }
 
   addPost(post: PostItem) {
-    const posts = this.postData;
+    // const posts = this.postData;
     post.tags = this.parseTags(post.text);
     post.timestamp = !post.timestamp ? new Date() : post.timestamp;
     post.trueCount = 0;
