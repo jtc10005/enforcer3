@@ -18,9 +18,9 @@ export class ReplyComponent implements OnInit {
   showReplies() {
     this.show = !this.show;
     if (this.show) {
-      this.ls.fetchReplies(this.PostId).subscribe(res => {
-        this.replies = res;
-      });
+      // this.ls.fetchReplies(this.PostId).subscribe(res => {
+      //   this.replies = res;
+      // });
     }
   }
 }

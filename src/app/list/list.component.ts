@@ -15,7 +15,7 @@ export class ListComponent implements OnInit, OnDestroy {
   // private posts: Posts = [];
 
   get posts() {
-    return this.ls.postData.sort((x, y) => y.timestamp.getTime() - x.timestamp.getTime() );
+    return this.ls.postData ? this.ls.postData : [];
   }
 
   constructor(private ls: AppService) { }
