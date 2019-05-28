@@ -38,10 +38,9 @@ export class VotePostComponent implements OnInit {
     }
     this.alreadyVotedUp = vote === 1;
     this.alreadyVotedDown = vote === -1;
-    // this.post.trueCount += vote;
+
     this.removeExistingVotesFromVotes();
     this.post.votes.push(new VoteItem({ VoteType: vote === 1 ? VoteType.UP : VoteType.DOWN, UserId: this.as.userId }));
-
 
     this.as.updatePost(this.post);
   }
