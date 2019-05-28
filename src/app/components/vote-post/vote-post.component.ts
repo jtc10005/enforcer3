@@ -18,10 +18,12 @@ export class VotePostComponent implements OnInit {
   constructor(private as: AppService) { }
 
   get CanUpVote() {
+    // evaluates to wether or not user can up vote
     return !this.alreadyVotedUp && this.post.votes.filter(x => x.UserId === this.as.userId && x.VoteType === VoteType.UP).length !== 0;
   }
 
   get canDownVote() {
+    // evaluates to wether or not user can down vote
     return !this.alreadyVotedDown && this.post.votes.filter(x => x.UserId === this.as.userId && x.VoteType === VoteType.DOWN).length !== 0;
   }
 
@@ -33,6 +35,7 @@ export class VotePostComponent implements OnInit {
 
 
   vote(vote: number) {
+    // add users votes
     if (this.post.trueCount === 0 && vote === -1) {
       return;
     }
@@ -44,7 +47,9 @@ export class VotePostComponent implements OnInit {
 
     this.as.updatePost(this.post);
   }
+
   removeExistingVotesFromVotes() {
+    // removes a users existing votes
     if (this.post && this.post.votes) {
       this.post.votes = this.post.votes.filter(x => x.UserId !== this.as.userId);
     }

@@ -17,7 +17,7 @@ const listRoute: AppRoute = {
   path: 'list',
   component: ListComponent,
   ShowInMenu: true,
-  MenuTitle: 'Home'
+  MenuTitle: 'Posts'
 };
 
 const postDetailRoute: AppRoute = {
@@ -30,7 +30,7 @@ const SubmitNew: AppRoute = {
   path: 'submitNew',
   component: SubmitNewPostComponent,
   ShowInMenu: true,
-  MenuTitle: 'Submit'
+  MenuTitle: 'Submit New'
 };
 
 export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute, SubmitNew];

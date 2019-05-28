@@ -73,8 +73,6 @@ export class AppService {
     const p = { ...post };
     const v = post.votes.map(v => ({ ...v }));
     p.votes = v;
-
-    // this.postCollection.doc(post.postId).update({ votes: firestore.FieldValue.arrayUnion(v) });
     this.postCollection.doc(post.postId).update({ ...p });
   }
 
