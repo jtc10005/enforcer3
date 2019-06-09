@@ -1,9 +1,9 @@
-<div [@slideInOut]="animationState">
+<div [@slideInOut]="animationState" class="wrapper container slideOver">
   <mat-card class="item">
     <app-submit-new-post></app-submit-new-post>
   </mat-card>
 </div>
-<div class="wrapper container" *ngIf="!addNew">
+<div class="wrapper container">
   <mat-card *ngIf="posts.length === 0">
     Nuthin here yet
   </mat-card>

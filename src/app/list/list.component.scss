@@ -1,1 +1,6 @@
-@import '../app.component.scss'
+@import '../app.component.scss';
+
+.slideOver {
+  position: fixed;
+  z-index: 10;
+}

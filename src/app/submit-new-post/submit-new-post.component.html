@@ -13,12 +13,12 @@
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" rows="3" formControlName="text"></textarea>
       </mat-form-field>
       <label>Tags: </label>
-      <span *ngIf="postForm?.controls.text.value === ''">None</span>
-      <app-tag-list [postText]="postForm.controls.text.value"></app-tag-list>
+      <span *ngIf="postForm?.controls['text'].value === ''">None</span>
+      <app-tag-list [postText]="postForm.controls['text'].value"></app-tag-list>
     </mat-card-content>
 
   </mat-card>
   <button mat-raised-button color="accent" type="submit" class="submitBtn" [disabled]="!postForm.valid" (click)="submitPost()">Submit</button>
   <button mat-raised-button color="primary" type="button">Cancel</button>
 </div>
-<pre>{{postForm.value | json}}</pre>
+<!-- <pre>{{postForm.value | json}}</pre> -->

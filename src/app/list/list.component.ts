@@ -15,7 +15,7 @@ import { SlideInOutAnimation } from '../components/animations';
 export class ListComponent implements OnInit, OnDestroy {
   destroy: Subject<boolean> = new Subject<boolean>();
   animationState = 'out';
-  private addNew = false;
+  // private addNew = false;
   // private posts: Posts = [];
 
   get posts() {
@@ -28,8 +28,8 @@ export class ListComponent implements OnInit, OnDestroy {
     this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe((action: ServiceAction) => {
       switch (action.Type) {
         case 'SHOW_ADD_NEW_POST':
-          this.addNew = !this.addNew;
-          this.animationState = this.addNew ? 'out' : 'in';
+          // this.addNew = !this.addNew;
+          this.animationState = this.animationState === 'in' ? 'out' : 'in';
           return;
       }
     });
@@ -40,6 +40,6 @@ export class ListComponent implements OnInit, OnDestroy {
 
   addNewPost(np: PostItem) {
     this.ls.addPost(np);
-    this.addNew = false;
+    // this.addNew = false;
   }
 }
