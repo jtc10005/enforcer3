@@ -1,16 +1,20 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../app.service';
 import { Posts, PostItem } from '../models/postItem';
-import { takeUntil } from 'rxjs/operators';
+import { map, tap, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
+import { ServiceAction } from '../models/serviceAction';
+import { SlideInOutAnimation } from '../components/animations';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  animations: [SlideInOutAnimation]
 })
 export class ListComponent implements OnInit, OnDestroy {
-  destroy = new Subject<any>();
+  destroy: Subject<boolean> = new Subject<boolean>();
+  animationState = 'out';
   private addNew = false;
   // private posts: Posts = [];
 
@@ -21,6 +25,14 @@ export class ListComponent implements OnInit, OnDestroy {
   constructor(private ls: AppService) { }
 
   ngOnInit() {
+    this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe((action: ServiceAction) => {
+      switch (action.Type) {
+        case 'SHOW_ADD_NEW_POST':
+          this.addNew = !this.addNew;
+          this.animationState = this.addNew ? 'out' : 'in';
+          return;
+      }
+    });
   }
 
   ngOnDestroy() {

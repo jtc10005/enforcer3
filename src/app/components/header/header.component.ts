@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routes } from 'src/app/app-routing.module';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,16 @@ import { routes } from 'src/app/app-routing.module';
 export class HeaderComponent implements OnInit {
 
   get routesForMenu() {
-   return routes.filter(x => x.ShowInMenu);
+    return routes.filter(x => x.ShowInMenu);
   }
 
-  constructor() {}
+  constructor(
+    private as: AppService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  private addNewPost() {
+    this.as.showNewPost();
+  }
 }

@@ -1,4 +1,12 @@
-<div class="wrapper container">
+<div [@slideInOut]="animationState">
+  <mat-card class="item">
+    <app-submit-new-post></app-submit-new-post>
+  </mat-card>
+</div>
+<div class="wrapper container" *ngIf="!addNew">
+  <mat-card *ngIf="posts.length === 0">
+    Nuthin here yet
+  </mat-card>
   <ng-template ngFor let-post [ngForOf]="posts" let-i="index">
     <mat-card class="item">
       <app-list-detail [post]="post" [showReplies]="false"></app-list-detail>

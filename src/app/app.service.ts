@@ -5,13 +5,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase';
 import { ConvertTimeStampToJSDate, calculateVoteTotal } from './utilities';
 import { UserService } from './user.service';
+import { Subject } from 'rxjs';
+import { ServiceAction } from './models/serviceAction';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  // private action = new Subject<ServiceAction>();
-  // serviceAction = this.action.asObservable();
+  private action = new Subject<ServiceAction>();
+  serviceAction = this.action.asObservable();
 
   postCollection = this.fs.collection('post');
 
@@ -24,25 +26,12 @@ export class AppService {
     this.fetchPosts();
   }
 
+  showNewPost() {
+    this.action.next({ Type: 'SHOW_ADD_NEW_POST' });
+  }
+
   fetchPosts() {
     this.postCollection.snapshotChanges().subscribe(data => {
-      //   const preMap = [];
-      //   if (data && data.length > 0) {
-      //     data.forEach(p => {
-      //       const post: any = p.payload.doc.data();
-      //       post.timestamp = ConvertTimeStampToJSDate(post.timestamp);
-      //       post.trueCount = !post.trueCount ? 0 : post.trueCount;
-      //       //
-      //       post.id = p.payload.doc.id;
-      //       preMap.push(post);
-      //     });
-      //     preMap.sort((x, y) => y.timestamp.getTime() - x.timestamp.getTime());
-      //     preMap.forEach(x =>{
-      //       const p = new PostItem({...x});
-      //       this.postData.set(x.id, p);
-      //     });
-      //   }
-      // })
       this.postData = data ? data.map(e => {
         const post = e.payload.doc.data() as PostItem;
         post.postId = e.payload.doc.id;

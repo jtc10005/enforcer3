@@ -26,14 +26,14 @@ const postDetailRoute: AppRoute = {
   ShowInMenu: false,
 };
 
-const SubmitNew: AppRoute = {
-  path: 'submitNew',
-  component: SubmitNewPostComponent,
-  ShowInMenu: true,
-  MenuTitle: 'Submit New'
-};
+// const SubmitNew: AppRoute = {
+//   path: 'submitNew',
+//   component: SubmitNewPostComponent,
+//   ShowInMenu: true,
+//   MenuTitle: 'Submit New'
+// };
 
-export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute, SubmitNew];
+export const routes: AppRoutes = [homeRoute, listRoute, postDetailRoute]; //, SubmitNew];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
