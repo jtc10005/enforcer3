@@ -38,6 +38,9 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  cancelNew() {
+    this.animationState = this.animationState === 'in' ? 'out' : 'in';
+  }
   addNewPost(np: PostItem) {
     this.ls.addPost(np);
     // this.addNew = false;

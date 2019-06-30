@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostItem } from '../models/postItem';
 import { AppService } from '../app.service';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SubmitNewPostComponent implements OnInit {
   postForm: FormGroup;
+  @Output() Cancel = new EventEmitter();
 
   get PostText() {
     const text = this.postForm.controls.text.value;
@@ -31,5 +32,10 @@ export class SubmitNewPostComponent implements OnInit {
     this.as.addPost(post);
     this.postForm.reset();
     this.router.navigate([`./list`]);
+  }
+
+  cancelPosting(){
+    this.postForm.reset();
+    this.Cancel.emit();
   }
 }
