@@ -1,3 +1,5 @@
+@import '../app.component.scss';
+
 .wrapper {
   max-width: 80%;
   // max-height: 50%;
@@ -7,7 +9,24 @@
 .fullWidth {
   width: 100%;
   font-size: 16pt;
+
+  mat-label {
+    color: black;
+  }
+
 }
 .submitBtn {
   margin: 1em;
+}
+
+.postForm {
+  mat-card {
+    height: 100%;
+    color: black;
+  }
+}
+
+.submitBtn.mat-raised-button.mat-accent {
+  background-color: green;
+  color: white;
 }

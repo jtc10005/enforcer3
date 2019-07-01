@@ -1,4 +1,4 @@
-<div class="wrapper container" [formGroup]="postForm">
+<div [formGroup]="postForm" class="postForm">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Submit A New Post</mat-card-title>
@@ -10,7 +10,8 @@
       </p>
       <mat-form-field class="fullWidth">
         <mat-label>Post</mat-label>
-        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" rows="3" formControlName="text"></textarea>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" rows="3"
+          formControlName="text"></textarea>
       </mat-form-field>
       <label>Tags: </label>
       <span *ngIf="postForm?.controls['text'].value === ''">None</span>
@@ -18,7 +19,8 @@
     </mat-card-content>
 
   </mat-card>
-  <button mat-raised-button color="accent" type="submit" class="submitBtn" [disabled]="!postForm.valid" (click)="submitPost()">Submit</button>
-  <button mat-raised-button color="primary" type="button">Cancel</button>
+  <button mat-raised-button color="accent" type="submit" class="submitBtn" [disabled]="!postForm.valid"
+    (click)="submitPost()">Submit</button>
+  <button mat-raised-button color="primary" type="button" (click)="cancelPosting()">Cancel</button>
 </div>
 <!-- <pre>{{postForm.value | json}}</pre> -->

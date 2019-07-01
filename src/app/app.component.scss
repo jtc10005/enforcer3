@@ -1,7 +1,10 @@
-// .wrapper {
-//     max-height: 90%;
-//     overflow: scroll;
-//   }
+mat-card {
+  background-color: whitesmoke;
+  color: black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
 
   .container {
     display: flex;
@@ -13,6 +16,5 @@
     flex: 0 0 auto;
     margin: 5px;
     width: 90vw;
-    border-color: gray;
-    color:black;
+
   }
