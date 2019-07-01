@@ -24,6 +24,10 @@ export class ListComponent implements OnInit, OnDestroy {
 
   constructor(private ls: AppService) { }
 
+  get AddPostOpen() {
+    return this.animationState !== 'in';
+  }
+
   ngOnInit() {
     this.ls.serviceAction.pipe(takeUntil(this.destroy)).subscribe((action: ServiceAction) => {
       switch (action.Type) {
@@ -36,11 +40,14 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.destroy.next();
+    this.destroy.complete();
   }
 
   cancelNew() {
     this.animationState = this.animationState === 'in' ? 'out' : 'in';
   }
+
   addNewPost(np: PostItem) {
     this.ls.addPost(np);
     // this.addNew = false;
